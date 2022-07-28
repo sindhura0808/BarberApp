@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.booksalonappointment">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,10 +16,19 @@
         android:theme="@style/Theme.BookSalonAppointment"
         tools:targetApi="31">
         <activity
-            android:name=".LogInActivity"
+            android:name=".view.DashBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.HomeScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

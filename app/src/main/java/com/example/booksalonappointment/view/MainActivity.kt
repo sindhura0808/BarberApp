@@ -1,7 +1,8 @@
-package com.example.booksalonappointment
+package com.example.booksalonappointment.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.booksalonappointment.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

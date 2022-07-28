@@ -11,4 +11,6 @@
     <string name="entername">Name</string>
     <string name="salon_img">Salon Img</string>
     <string name="register">Register</string>
+    <string name="signup">Sign Up</string>
+    <string name="skip">Skip?</string>
 </resources>
