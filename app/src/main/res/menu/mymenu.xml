@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_bookappointment"
+            android:title="@string/BookAppointment"/>
+
+        <item
+            android:id="@+id/nav_ourservices"
+            android:title="@string/ourservices"/>
+
+        <item
+            android:id="@+id/nav_offers"
+            android:title="@string/offers"/>
+        <item
+            android:id="@+id/nav_homecaretips"
+            android:title="@string/Homecareproducts"/>
+
+        <item
+            android:id="@+id/nav_howtoreach"
+            android:title="@string/Howtoreach"/>
+
+        <item
+            android:id="@+id/nav_workinghours"
+            android:title="@string/workinghours"/>
+
+    </group>
+    <item android:title="@string/Community">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_userrating"
+                android:title="@string/userrating"/>
+
+            <item
+                android:id="@+id/nav_About"
+                android:title="@string/About"/>
+
+
+        </menu>
+    </item>
+
+</menu>

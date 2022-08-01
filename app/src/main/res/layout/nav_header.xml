@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:id="@+id/nav_root"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEmail"
+        android:layout_margin="5dp"
+        android:fontFamily="cursive"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="Customer"
+        app:layout_constraintStart_toStartOf="@id/senderImage"
+        app:layout_constraintTop_toBottomOf="@id/senderImage"
+        />
+<androidx.appcompat.widget.AppCompatImageView
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:id="@+id/senderImage"
+    android:cropToPadding="true"
+    android:layout_margin="10dp"
+    android:src="@drawable/barber"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

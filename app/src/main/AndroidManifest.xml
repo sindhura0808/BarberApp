@@ -15,14 +15,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookSalonAppointment"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
         <activity
             android:name=".view.DashBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DashBoardActivityWhenLoggedIn"
             android:exported="false" />
         <activity
             android:name=".view.HomeScreenActivity"
             android:exported="false" />
         <activity
             android:name=".view.LogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LogOutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.OfferActivity"
+            android:parentActivityName=".view.DashBoardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.HomeCareTipsActivity"
+            android:parentActivityName=".view.DashBoardActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegistrationActivity"

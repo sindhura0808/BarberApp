@@ -13,4 +13,15 @@
     <string name="register">Register</string>
     <string name="signup">Sign Up</string>
     <string name="skip">Skip?</string>
+    <string name="notification">Notification</string>
+    <string name="BookAppointment">Book Appointment</string>
+    <string name="ourservices">Our Services</string>
+    <string name="offers">Offers</string>
+    <string name="Homecareproducts">Home Care Tips</string>
+    <string name="Howtoreach">How to reach?</string>
+    <string name="workinghours">Working Hours</string>
+    <string name="userrating">User Rating</string>
+    <string name="Community">Community</string>
+    <string name="About">About</string>
+    <string name="logout">Log Out</string>
 </resources>

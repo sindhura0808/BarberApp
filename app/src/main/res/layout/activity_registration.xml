@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.booksalonappointment.viewmodel.RegistrationViewModel" />
+            type="com.example.booksalonappointment.viewmodel.registration.RegistrationViewModel" />
         <import type="android.view.View" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -89,8 +89,7 @@
         android:layout_height="wrap_content"
         android:text="@string/existing_user"
         android:textColor="@color/Blue"
-        android:textSize="20sp"
-        android:layout_marginBottom="@dimen/_15dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

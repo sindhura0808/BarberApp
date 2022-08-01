@@ -2,20 +2,24 @@ package com.example.booksalonappointment.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.booksalonappointment.R
 import com.example.booksalonappointment.databinding.ActivityRegistrationBinding
 import com.example.booksalonappointment.model.Repository
-import com.example.booksalonappointment.viewmodel.RegistrationViewModel
-import com.example.booksalonappointment.viewmodel.RegistrationViewModelFactory
+import com.example.booksalonappointment.viewmodel.registration.RegistrationViewModel
+import com.example.booksalonappointment.viewmodel.registration.RegistrationViewModelFactory
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
 
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistrationBinding
     private lateinit var viewModel: RegistrationViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +30,11 @@ class RegistrationActivity : AppCompatActivity() {
             startActivity(Intent(this, LogInActivity::class.java))
             finish()
         }
-
-
         FirebaseMessaging.getInstance().token.addOnCompleteListener {
             if (it.isSuccessful) {
                 viewModel.fcmToken.value = it.result
             }
         }
-
         setUpViewModel()
         setUpInputObserver()
         setUpAPIObserver()
