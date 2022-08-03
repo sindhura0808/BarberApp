@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.WorkingHoursActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/tool"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ImageView
+        android:id="@+id/salonImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="84dp"
+        android:contentDescription="@string/salon_img"
+        android:src="@drawable/barber"
+        app:flow_verticalAlign="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool" />
+
+    <TableLayout
+      android:layout_width="fill_parent"
+      android:layout_height="300dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/salonImg">
+
+
+          <TableRow
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="horizontal">
+              <TextView
+                  android:text="Sunday"
+                  android:textStyle="bold"
+                  android:textSize="25dp"
+                  android:layout_gravity="start"
+                  android:layout_marginLeft="20dp"
+                  android:layout_width="150dp"
+                  android:textColor="@color/black"
+                  android:layout_height="wrap_content"
+                  android:layout_column="1" />
+
+              <TextView
+                  android:text="08:00 to 22:00"
+                  android:textStyle="bold"
+                  android:textSize="25dp"
+                  android:layout_gravity="end"
+                  android:textColor="@color/black"
+                  android:layout_marginLeft="20dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_column="2" />
+          </TableRow>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal">
+      <TextView
+          android:text="Monday"
+          android:textStyle="bold"
+          android:textSize="25dp"
+          android:layout_gravity="start"
+          android:layout_marginLeft="20dp"
+          android:layout_width="150dp"
+          android:textColor="@color/black"
+          android:layout_height="wrap_content"
+          android:layout_column="1" />
+
+      <TextView
+          android:text="Holiday"
+          android:textStyle="bold"
+          android:textSize="25dp"
+          android:textColor="@color/red"
+          android:layout_gravity="end"
+          android:layout_marginLeft="20dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_column="2" />
+      </TableRow>
+
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal">
+          <TextView
+              android:text="Tuesday"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="start"
+              android:layout_marginLeft="20dp"
+              android:layout_width="150dp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"
+              android:layout_column="1" />
+
+          <TextView
+              android:text="08:00 to 22:00"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="end"
+              android:textColor="@color/black"
+              android:layout_marginLeft="20dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_column="2" />
+      </TableRow>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal">
+          <TextView
+              android:text="Wednesday"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="start"
+              android:layout_marginLeft="20dp"
+              android:layout_width="150dp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"
+              android:layout_column="1" />
+
+          <TextView
+              android:text="08:00 to 22:00"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="end"
+              android:textColor="@color/black"
+              android:layout_marginLeft="20dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_column="2" />
+      </TableRow>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal">
+          <TextView
+              android:text="Thursday"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="start"
+              android:layout_marginLeft="20dp"
+              android:layout_width="150dp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"
+              android:layout_column="1" />
+
+          <TextView
+              android:text="08:00 to 22:00"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="end"
+              android:textColor="@color/black"
+              android:layout_marginLeft="20dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_column="2" />
+      </TableRow>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal">
+          <TextView
+              android:text="Friday"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="start"
+              android:layout_marginLeft="20dp"
+              android:layout_width="150dp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"
+              android:layout_column="1" />
+
+          <TextView
+              android:text="08:00 to 22:00"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="end"
+              android:textColor="@color/black"
+              android:layout_marginLeft="20dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_column="2" />
+      </TableRow>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal"
+          android:baselineAligned="true">
+          <TextView
+              android:text="Saturday"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:layout_gravity="start"
+              android:layout_marginLeft="20dp"
+              android:layout_width="150dp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"
+              android:layout_column="1" />
+
+          <TextView
+              android:text="08:00 to 18:00"
+              android:textStyle="bold"
+              android:textSize="25dp"
+              android:textColor="@color/black"
+              android:layout_marginLeft="20dp"
+              android:layout_gravity="end"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_column="2" />
+      </TableRow>
+
+
+  </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
