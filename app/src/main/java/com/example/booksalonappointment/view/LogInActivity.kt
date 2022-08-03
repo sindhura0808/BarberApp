@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.text.isDigitsOnly
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.booksalonappointment.R
 import com.example.booksalonappointment.databinding.ActivityLogInBinding
@@ -35,6 +37,10 @@ class LogInActivity : AppCompatActivity() {
             startActivity(Intent(this, DashBoardActivity::class.java))
             finish()
         }
+        binding.forgotpassword.setOnClickListener{
+            startActivity(Intent(this,ForgotPasswordActivity::class.java))
+        }
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener {
             if(it.isSuccessful) {
                     viewModel.fcmToken.postValue(it.result)
@@ -55,12 +61,10 @@ class LogInActivity : AppCompatActivity() {
         viewModel.loginResponse.observe(this) {
             saveUser(it)
             Toast.makeText(this,it.userId, Toast.LENGTH_LONG).show()
-            startActivity(Intent(baseContext, DashBoardActivityWhenLoggedIn::class.java))
+            startActivity(Intent(baseContext, DashBoardActivity::class.java))
             finish()
-            //Toast.makeText(this, it.message, Toast.LENGTH_SHORT)
         }
         viewModel.error.observe(this) {
-            //Toast.makeText(baseContext, it, Toast.LENGTH_SHORT).show()
             openDialog(it!!)
         }
     }

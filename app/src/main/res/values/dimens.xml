@@ -2,4 +2,7 @@
 <resources>
     <dimen name="_120dp">120</dimen>
     <dimen name="_15dp">15</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="common_margin">16dp</dimen>
+    <dimen name="common_padding">16dp</dimen>
 </resources>

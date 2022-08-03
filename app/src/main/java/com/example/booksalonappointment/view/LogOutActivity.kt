@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.booksalonappointment.R
 import com.example.booksalonappointment.model.Repository
-import com.example.booksalonappointment.viewmodel.login.LoginViewModel
-import com.example.booksalonappointment.viewmodel.login.LoginViewModelFactory
 import com.example.booksalonappointment.viewmodel.logout.LogoutViewModel
 import com.example.booksalonappointment.viewmodel.logout.LogoutViewModelFactory
 

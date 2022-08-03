@@ -23,6 +23,7 @@ class Repository () {
     val registrationResponse = MutableLiveData<RegistrationResponse>()
     val logInResponse=MutableLiveData<LogInResponse>()
 
+
     fun register(registrationRequest: RegistrationRequest) {
         isProcessing.set(true)
         val call = apiService.signUpUser(registrationRequest)

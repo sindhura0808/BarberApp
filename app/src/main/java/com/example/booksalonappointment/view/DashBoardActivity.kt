@@ -14,12 +14,13 @@ class DashBoardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityDashBoardBinding.inflate(layoutInflater)
+        binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
+
+         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.navView.setNavigationItemSelectedListener { menuItems->
             menuItems.isChecked=true
             binding.drawerLayout.closeDrawers()
@@ -40,16 +41,19 @@ class DashBoardActivity : AppCompatActivity() {
                     showToast("How To Reach?")
                 }
                 R.id.nav_workinghours -> {
-                    showToast("working hours")
+                    startActivity(Intent(this, WorkingHoursActivity::class.java))
                 }
-                R.id.nav_workinghours -> {
-                    showToast("Log Out")
+                R.id.nav_notifications -> {
+                showToast("Log Out")
+            }
+                R.id.nav_logout -> {
+                    startActivity(Intent(this,LogOutActivity::class.java))
                 }
                 R.id.nav_userrating-> {
                     showToast("rating")
                 }
                 R.id.nav_About-> {
-                    showToast("about")
+                    startActivity(Intent(this, AboutUSActivity::class.java))
                 }
             }
             true
@@ -60,6 +64,7 @@ class DashBoardActivity : AppCompatActivity() {
     {
         Toast.makeText(this,s, Toast.LENGTH_SHORT).show()
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==android.R.id.home)

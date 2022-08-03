@@ -45,7 +45,7 @@ class DashBoardActivityWhenLoggedIn : AppCompatActivity() {
                     showToast("working hours")
                 }
                 com.example.booksalonappointment.R.id.nav_logout -> {
-                    startActivity(Intent(this,LogOutActivity::class.java))
+
                 }
                 com.example.booksalonappointment.R.id.nav_userrating-> {
                     showToast("rating")

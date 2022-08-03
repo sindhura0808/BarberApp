@@ -5,26 +5,42 @@
 
         <item
             android:id="@+id/nav_bookappointment"
+            android:icon="@drawable/ic_baseline_date_range_24"
             android:title="@string/BookAppointment"/>
 
         <item
             android:id="@+id/nav_ourservices"
+            android:icon="@drawable/ic_baseline_design_services_24"
             android:title="@string/ourservices"/>
 
         <item
             android:id="@+id/nav_offers"
+            android:icon="@drawable/ic_baseline_local_offer_24"
             android:title="@string/offers"/>
         <item
             android:id="@+id/nav_homecaretips"
+            android:icon="@drawable/ic_baseline_home_work_24"
             android:title="@string/Homecareproducts"/>
 
         <item
             android:id="@+id/nav_howtoreach"
+            android:icon="@drawable/ic_baseline_add_location_24"
             android:title="@string/Howtoreach"/>
 
         <item
             android:id="@+id/nav_workinghours"
+            android:icon="@drawable/ic_baseline_access_time_24"
             android:title="@string/workinghours"/>
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_baseline_notifications_24"
+            android:title="@string/notification"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_login_24"
+            android:title="@string/logout"/>
+
+
 
     </group>
     <item android:title="@string/Community">
@@ -33,10 +49,12 @@
 
             <item
                 android:id="@+id/nav_userrating"
+                android:icon="@drawable/ic_baseline_star_rate_24"
                 android:title="@string/userrating"/>
 
             <item
                 android:id="@+id/nav_About"
+                android:icon="@drawable/ic_baseline_all_inclusive_24"
                 android:title="@string/About"/>
 
 

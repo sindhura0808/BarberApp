@@ -15,12 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookSalonAppointment"
         tools:targetApi="31">
+        <activity
+            android:name=".view.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AboutUSActivity"
+            android:exported="false"
+            android:parentActivityName=".view.DashBoardActivity" />
+        <activity
+            android:name=".view.WorkingHoursActivity"
+            android:exported="false"
+            android:parentActivityName=".view.DashBoardActivity" />
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
         <activity
             android:name=".view.DashBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ServiceActivity"
             android:exported="false" />
         <activity
             android:name=".view.DashBoardActivityWhenLoggedIn"
@@ -36,13 +51,12 @@
             android:exported="false" />
         <activity
             android:name=".view.OfferActivity"
-            android:parentActivityName=".view.DashBoardActivity"
-            android:exported="false" />
-
+            android:exported="false"
+            android:parentActivityName=".view.DashBoardActivity" />
         <activity
             android:name=".view.HomeCareTipsActivity"
-            android:parentActivityName=".view.DashBoardActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".view.DashBoardActivity" />
         <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />

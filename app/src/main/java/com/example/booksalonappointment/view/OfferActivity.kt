@@ -9,10 +9,14 @@ import com.example.booksalonappointment.R
 import com.example.booksalonappointment.databinding.ActivityOffersBinding
 
 class OfferActivity : AppCompatActivity() {
+
     lateinit var binding:ActivityOffersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityOffersBinding.inflate(layoutInflater)
+
+
         setContentView(R.layout.activity_offers)
         setSupportActionBar(findViewById(R.id.toolbar))
         // calling the action bar

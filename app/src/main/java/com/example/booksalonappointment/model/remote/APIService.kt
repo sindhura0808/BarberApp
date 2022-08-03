@@ -1,14 +1,13 @@
 package com.example.booksalonappointment.model.remote
 
+import com.example.booksalonappointment.model.RetrofitClient
 import com.example.booksalonappointment.model.remote.request.RegistrationRequest
 import com.example.booksalonappointment.model.remote.request.LogInRequest
 import com.example.booksalonappointment.model.remote.request.LogOutRequest
-import com.example.booksalonappointment.model.remote.response.RegistrationResponse
-import com.example.booksalonappointment.model.remote.response.LogInResponse
-import com.example.booksalonappointment.model.remote.response.LogOutResponse
-import com.example.booksalonappointment.model.remote.response.ServiceResponse
+import com.example.booksalonappointment.model.remote.response.*
 import io.reactivex.Single
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface APIService{
@@ -29,5 +28,10 @@ interface APIService{
     @GET("Service/getServices")
     fun getServices(): Single<List<ServiceResponse>>
 
+
+    companion object{
+        fun getInstance(): APIService =
+            RetrofitClient.retrofit.create(APIService::class.java)
+    }
 
 }

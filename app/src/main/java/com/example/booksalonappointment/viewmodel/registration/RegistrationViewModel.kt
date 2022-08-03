@@ -36,8 +36,6 @@ class RegistrationViewModel(private val repository: Repository) : ViewModel() {
             repository.register(registrationRequest)
         }
     }
-
-
     private fun validateInput(): Boolean {
         isMobileNumberNotEmpty.value = isNotEmpty(mobileNumber.value)
         isPasswordNotEmpty.value = isNotEmpty(password.value)
