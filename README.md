@@ -26,4 +26,6 @@ Sailent Features:
  
  
  
- ToDO
+ To DO
+ 1.Complete the time selection and get the summary and book the appointment
+ 2.Get the notification
