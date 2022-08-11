@@ -21,20 +21,19 @@ appointment.
  
  ## Built With
  
-Kotlin - First class and official programming language for Android development.
-Coroutines - For asynchronous and more..
-RxJava - For asynchronous and more..
-Kotlin Flow - For asynchronous and more..
-Android Architecture Components - Collection of libraries that help you design robust, testable, and maintainable apps.
-LiveData - Data objects that notify views when the underlying database changes.
-ViewModel - Stores UI-related data that isn't destroyed on UI changes.
-ViewBinding - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
-Retrofit - A type-safe HTTP client for Android and Java.
-GSON - A Java serialization/deserialization library to convert Java Objects into JSON and back.
-GSON Converter - A Converter which uses Gson for serialization to and from JSON.
-OkHttp3 - For implementing interceptor, logging and mocking web server.
-Glide - An image loading and caching library for Android focused on smooth scrolling.
-Material Components for Android - Modular and customizable Material Design UI components for Android.
+-Kotlin - First class and official programming language for Android development.
+-Coroutines - For asynchronous and more..
+-RxJava - For asynchronous and more..
+-MVVM Architecture Design - Collection of libraries that help you design robust, testable, and maintainable apps.
+-LiveData - Data objects that notify views when the underlying database changes.
+-ViewModel - Stores UI-related data that isn't destroyed on UI changes.
+-ViewBinding - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
+-Retrofit - A type-safe HTTP client for Android and Java.
+-GSON - A Java serialization/deserialization library to convert Java Objects into JSON and back.
+-GSON Converter - A Converter which uses Gson for serialization to and from JSON.
+-OkHttp3 - For implementing interceptor, logging and mocking web server.
+-Glide - An image loading and caching library for Android focused on smooth scrolling.
+-Material Components for Android - Modular and customizable Material Design UI components for Android.
  
  
  ## Architecture
@@ -43,5 +42,5 @@ Material Components for Android - Modular and customizable Material Design UI co
  
  
  ## To DO
- 1.Complete the time selection and get the summary and book the appointment
- 2.Get the notification
+ -Complete the time selection and get the summary and book the appointment
+-Get the notification
