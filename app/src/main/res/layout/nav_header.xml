@@ -16,10 +16,11 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:text="Customer"
+        android:text="@string/customer"
         app:layout_constraintStart_toStartOf="@id/senderImage"
         app:layout_constraintTop_toBottomOf="@id/senderImage"
         />
+
 <androidx.appcompat.widget.AppCompatImageView
     android:layout_width="130dp"
     android:layout_height="130dp"

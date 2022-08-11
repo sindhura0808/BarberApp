@@ -7,7 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.booksalonappointment.R
-import com.example.booksalonappointment.model.Repository
+import com.example.booksalonappointment.model.Repo.Repository
+import com.example.booksalonappointment.model.remote.APIService
 import com.example.booksalonappointment.viewmodel.logout.LogoutViewModel
 import com.example.booksalonappointment.viewmodel.logout.LogoutViewModelFactory
 
@@ -22,11 +23,10 @@ class LogOutActivity : AppCompatActivity() {
         setupViewModel()
         val userid = getUserID()
         val fcmToken = getfcmToken()
-        viewModel.onLogoutClick(userid!!,fcmToken!!)
-        Toast.makeText(this, "Customer with user id= ${userid} is logged out", Toast.LENGTH_SHORT).show()
+        viewModel.onLogoutClick(userid!!)
         deleteSharedpreferencedata()
         Handler().postDelayed({
-            var intent: Intent = Intent(this, LogInActivity::class.java)
+            var intent= Intent(this, LogInActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)
@@ -39,7 +39,7 @@ class LogOutActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        val viewmodelFactory = LogoutViewModelFactory(Repository())
+        val viewmodelFactory = LogoutViewModelFactory(Repository(APIService.getInstance()))
         viewModel = ViewModelProvider(this, viewmodelFactory)[LogoutViewModel::class.java]
     }
 

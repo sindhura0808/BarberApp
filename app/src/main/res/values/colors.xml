@@ -14,6 +14,10 @@
     <color name="Blue">#303F9F</color>
     <color name="gray">#4D4B4A</color>
     <color name="red">#D32F2F</color>
-    <color name="background_color">#0097A7</color>
-    <color name="grey">#979696</color>
+    <color name="background_color">#979696</color>
+    <color name="grey">#E3E0E0</color>
+    <color name="teal_night">#58BAC5</color>
+    <color name="red_200">#F16A61</color>
+    <color name="gold">#E2A91C</color>
+    <color name="blue">#5792CC</color>
 </resources>

@@ -2,12 +2,18 @@ package com.example.booksalonappointment.viewmodel.services
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.booksalonappointment.model.Repository
-import com.example.booksalonappointment.model.ServiceRepository
-import com.example.booksalonappointment.viewmodel.login.LoginViewModel
+import com.example.booksalonappointment.model.Repo.Repository
+import java.lang.IllegalArgumentException
 
-class ServiceViewModelFactory (val repository: ServiceRepository): ViewModelProvider.NewInstanceFactory() {
+class ServiceViewModelFactory constructor(private val repository: Repository) :
+    ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ServiceViewModel(repository) as T
+        return if(modelClass.isAssignableFrom(ServiceViewModel::class.java)) {
+            ServiceViewModel(this.repository) as T
+        }
+        else
+        {
+            throw IllegalArgumentException("View Model not found!!")
+        }
     }
 }

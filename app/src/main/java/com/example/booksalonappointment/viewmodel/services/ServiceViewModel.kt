@@ -1,37 +1,35 @@
 package com.example.booksalonappointment.viewmodel.services
 
-import android.app.Service
-import android.util.Log
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.booksalonappointment.model.Repository
-import com.example.booksalonappointment.model.ServiceRepository
-import com.example.booksalonappointment.model.remote.response.ServiceResponse
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import com.example.booksalonappointment.model.Repo.Repository
+import com.example.booksalonappointment.model.remote.response.service.Service
 
 
-class ServiceViewModel(private val repository: ServiceRepository) : ViewModel() {
+class ServiceViewModel(private val repository: Repository): ViewModel() {
+    val serviceCategoryResponse = repository.serviceCategoryResponse
+    val serviceResponse = repository.serviceResponse
+    val services = MutableLiveData<ArrayList<List<Service>>>()
+    val error: MutableLiveData<String> = repository.error
+    val isProcessing = repository.isProcessing
 
-    val serviceList = MutableLiveData<List<ServiceResponse>>()
-    var compositeDisposable : CompositeDisposable = CompositeDisposable()
+    fun getService() {
+        repository.getServices()
 
-    fun loadService()
-    {
-        compositeDisposable.addAll(repository.getServices()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { serviceList.postValue(it) },
-                { t: Throwable? ->
-                    Log.i("tag", t?.message ?: "error")
-                }
-            ))
-    }
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
+        val num = serviceCategoryResponse.value?.serviceCategories?.size
+        services.value = ArrayList()
+//        viewModelScope.launch {
+//            for (i in 1..num!!) {
+//                try {
+//                    repository.getServiceByCategory(i.toString())
+//                    services.value!!.add(serviceResponse.value?.services!!)
+//                } catch (exception: Exception) {
+//                    error.postValue(exception.message)
+//                    isProcessing.set(false)
+//                }
+//            }
+//            isProcessing.set(false)
+//        }
     }
 }
-

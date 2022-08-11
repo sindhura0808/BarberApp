@@ -1,5 +1,7 @@
 package com.example.booksalonappointment.model.remote.response
 
+import android.os.Parcelable
+
 data class LogInResponse (
     val apiToken: String,
     val createdOn: String,
@@ -24,4 +26,4 @@ data class LogInResponse (
     val tokenValidUpto: String,
     val updatedOn: String,
     val userId: String
-    )
+)

@@ -6,44 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".view.AboutUSActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="0dp"
-        android:id="@+id/barlayout"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back_service"
+        android:layout_width="@dimen/_40dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginStart="@dimen/_10dp"
+        android:clickable="true"
+        android:contentDescription="@string/back"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintBottom_toTopOf="@id/guideline_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_grid"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+    <TextView
+        android:id="@+id/service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aboutus"
+        android:textSize="@dimen/_30dp"
+        android:gravity="center"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/back_service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/back_service"
+        app:layout_constraintVertical_bias="0.3" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:contentDescription="@string/salon_img"
         android:id="@+id/salonImg"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/_300dp"
+        android:layout_height="@dimen/_300dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/barber"
         app:flow_verticalAlign="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barlayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/guideline_grid"/>
     <TextView
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_version"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/_15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salonImg" />
@@ -59,50 +74,61 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/version" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/dev_pic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <TextView
+        android:id="@+id/devBysin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:text="@string/developed_by_sin"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/devBy"
-        android:src="@drawable/saloon"/>
+        app:layout_constraintTop_toBottomOf="@id/devBy" />
 
-    <TextView
-        android:id="@+id/dev_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="@string/email"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dev_pic" />
-    <TextView
-        android:id="@+id/website_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="@string/contact"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dev_email" />
 
-    <TextView
-        android:id="@+id/contact"
+
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="@string/contactno"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btn_call_us"
+        android:src="@drawable/ic_baseline_local_phone_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/website_label" />
+         android:layout_marginLeft="@dimen/_80dp"
+        android:layout_marginBottom="@dimen/_80dp"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_locate_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_baseline_add_location_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_call_us" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_share"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_locate_us"
+        android:layout_marginBottom="@dimen/_80dp"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_youtube"
+        android:src="@drawable/ic_baseline_video_library_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_share"
+        android:layout_marginBottom="@dimen/_80dp"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

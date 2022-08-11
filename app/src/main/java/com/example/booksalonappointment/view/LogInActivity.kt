@@ -7,15 +7,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.isDigitsOnly
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.booksalonappointment.R
 import com.example.booksalonappointment.databinding.ActivityLogInBinding
-import com.example.booksalonappointment.model.Repository
+import com.example.booksalonappointment.model.Repo.Repository
+import com.example.booksalonappointment.model.remote.APIService
 import com.example.booksalonappointment.model.remote.response.LogInResponse
 import com.example.booksalonappointment.viewmodel.login.LoginViewModel
 import com.example.booksalonappointment.viewmodel.login.LoginViewModelFactory
-import com.example.booksalonappointment.viewmodel.registration.RegistrationViewModel
 import com.google.firebase.messaging.FirebaseMessaging
 
 class LogInActivity : AppCompatActivity() {
@@ -28,66 +26,91 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setupViewModel()
         binding.loginRegister.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
 
-        binding.txtSkip.setOnClickListener {
-            startActivity(Intent(this, DashBoardActivity::class.java))
-            finish()
+        if (intent.extras?.get("PHONE") != null && intent.extras?.get("PASSWORD") != null) {
+            val phone = intent.extras?.get("PHONE") as String
+            val password = intent.extras?.get("PASSWORD") as String
+            viewModel.onLogin(phone, password)
         }
-        binding.forgotpassword.setOnClickListener{
-            startActivity(Intent(this,ForgotPasswordActivity::class.java))
+        binding.btnLogin.setOnClickListener {
+            val phone = binding.edtPhone.text.toString()
+            val password = binding.edtPassword.text.toString()
+            var check = true
+            var message = ""
+            if (phone.length < 8) {
+                check = false
+                message = "Mobile Number should at least 8 digits"
+            }
+            if (phone.length > 13) {
+                check = false
+                message = "Mobile Number should not more than 13 digits"
+            }
+            if (!phone.isDigitsOnly()) {
+                check = false
+                message = "Mobile Number should be digits"
+            }
+            if (password.length < 8) {
+                check = false
+                message = "Password should at least 8 digits"
+            }
+            if (check) {
+                viewModel.onLogin(phone, password)
+            } else {
+                val builder = AlertDialog.Builder(this)
+                    .setTitle("Login Error")
+                    .setMessage(message)
+                    .setPositiveButton("Ok") { _, _ ->
+                    }
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.setCancelable(true)
+                alertDialog.show()
+            }
+
         }
 
-        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-            if(it.isSuccessful) {
+        binding.forgotpassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+
+        viewModel.loginResponse.observe(this) {
+            saveUser(it)
+            FirebaseMessaging.getInstance().token.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    viewModel.updateFCM(it.result)
                     viewModel.fcmToken.postValue(it.result)
                     Log.d("FCM_Token", "FCM_TOKEN: ${it.result}")
+
+                }
             }
+            val intent = Intent(this, DashBoardActivity::class.java)
+            Log.e(LOGIN_INFO, it.toString())
+            startActivity(intent)
         }
-        setupViewModel()
-        setupObservers()
 
     }
+
     private fun setupViewModel() {
-        val viewmodelFactory = LoginViewModelFactory(Repository())
+        val viewmodelFactory = LoginViewModelFactory(Repository(APIService.getInstance()))
         viewModel = ViewModelProvider(this, viewmodelFactory)[LoginViewModel::class.java]
         binding.viewModel = viewModel
     }
 
-    private fun setupObservers() {
-        viewModel.loginResponse.observe(this) {
-            saveUser(it)
-            Toast.makeText(this,it.userId, Toast.LENGTH_LONG).show()
-            startActivity(Intent(baseContext, DashBoardActivity::class.java))
-            finish()
-        }
-        viewModel.error.observe(this) {
-            openDialog(it!!)
-        }
-    }
-
-    private fun openDialog(message: String) {
-        val builder = AlertDialog.Builder(this)
-            .setTitle("Sorry, Wrong Phone number and password entered!!")
-            .setMessage(message)
-            .setNeutralButton("Try again", null)
-        val alertDialog = builder.create()
-        alertDialog.setCancelable(false)
-        alertDialog.show()
-    }
 
     private fun saveUser(user: LogInResponse) {
-       val pref = getSharedPreferences("users", MODE_PRIVATE)
+        val pref = getSharedPreferences("users", MODE_PRIVATE)
+        pref.edit().apply {
+            putString("user_id", user.userId)
+            putString("mobile_no", user.mobileNo)
+            apply()
+        }
+    }
 
-      pref.edit().apply{
-           putString("user_id", user.userId)
-           putString("mobile_no", user.mobileNo)
-           putString("fcm_Token", viewModel.fcmToken.value!!)
-           apply()
-       }
-   }
+    companion object {
+        const val LOGIN_INFO = "login_info"
+    }
 }
 

@@ -4,9 +4,9 @@
 
     <corners android:radius="40dp"/>
 
-    <solid android:color="@color/background_color" />
+    <solid android:color="@color/grey" />
 
-    <stroke android:color="@color/background_color"
+    <stroke android:color="@color/black"
         android:dashGap="5dp"
         android:dashWidth="5dp"
          android:width="5dp"/>

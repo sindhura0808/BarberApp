@@ -5,28 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/imgBarberSaloon"
+    android:layout_marginTop="50dp"
+    android:background="@drawable/barbershop"
     tools:context=".view.HomeFragment">
 
 
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    app:layout_constraintTop_toTopOf="parent"
-  >
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
 
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/saloon"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="250dp"
-        android:src="@drawable/saloon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:id="@+id/servicebuttonholder">
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -37,10 +32,12 @@
         android:background="@drawable/corner_button"
         android:fontFamily="cursive"
         android:text="Our Services"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/saloon"/>
+        app:layout_constraintBottom_toTopOf="@+id/btnBookAppointment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBookAppointment"
         android:layout_width="match_parent"
@@ -49,10 +46,12 @@
         android:background="@drawable/corner_button"
         android:fontFamily="cursive"
         android:text="Book Appointment"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/btnOurServices"/>
+        app:layout_constraintBottom_toTopOf="@+id/btnWorkinghours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnWorkinghours"
@@ -62,10 +61,12 @@
         android:background="@drawable/corner_button"
         android:fontFamily="cursive"
         android:text="Working Hours"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/btnBookAppointment"/>
+        app:layout_constraintBottom_toTopOf="@+id/btnAboutUs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAboutUs"
@@ -75,12 +76,21 @@
         android:background="@drawable/corner_button"
         android:fontFamily="cursive"
         android:text="About Us"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/btnWorkinghours"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.booksalonappointment.databinding.ActivityServiceBinding
-import com.example.booksalonappointment.model.ServiceRepository
+import com.example.booksalonappointment.model.Repo.Repository
 import com.example.booksalonappointment.model.remote.APIService
-import com.example.booksalonappointment.model.remote.response.ServiceResponse
+import com.example.booksalonappointment.model.remote.response.service.ServiceCategoryResponse
+import com.example.booksalonappointment.model.remote.response.service.ServiceResponse
 import com.example.booksalonappointment.view.adapter.ServiceAdapter
 import com.example.booksalonappointment.viewmodel.services.ServiceViewModel
 import com.example.booksalonappointment.viewmodel.services.ServiceViewModelFactory
@@ -20,24 +20,31 @@ class ServiceActivity : AppCompatActivity() {
     lateinit  var factory: ServiceViewModelFactory
     lateinit var serviceadapter: ServiceAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityServiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupViewModel()
+        binding.apply {
+            backService.setOnClickListener {
+                super.onBackPressed()
+                finish()
+            }
+        }
 
     }
     private fun setupViewModel() {
-         factory = ServiceViewModelFactory(ServiceRepository(APIService.getInstance()))
+         factory = ServiceViewModelFactory(Repository(APIService.getInstance()))
         viewModel = ViewModelProvider(this, factory)[ServiceViewModel::class.java]
-        viewModel.loadService()
-        viewModel.serviceList.observe(this)
+        viewModel.getService()
+        viewModel.serviceCategoryResponse.observe(this)
         {
             setUpData(it)
         }
     }
 
-    private fun setUpData(service: List<ServiceResponse>) {
+    private fun setUpData(service: ServiceCategoryResponse) {
         serviceadapter= ServiceAdapter(this,service)
         binding.servicerecyclerview.layoutManager= GridLayoutManager(this@ServiceActivity,2)
         binding.servicerecyclerview.adapter=serviceadapter

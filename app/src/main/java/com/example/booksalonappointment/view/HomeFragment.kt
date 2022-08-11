@@ -27,7 +27,7 @@ class HomeFragment: Fragment() {
 
     private fun setUpEvents() {
       binding.apply{
-          btnBookAppointment.setOnClickListener {  }
+          btnBookAppointment.setOnClickListener {  startActivity(Intent(context,BookAppointmentActivity::class.java)) }
           btnOurServices.setOnClickListener { startActivity(Intent(context,ServiceActivity::class.java)) }
           btnWorkinghours.setOnClickListener {   startActivity(Intent(context, WorkingHoursActivity::class.java))}
           btnAboutUs.setOnClickListener {   startActivity(Intent(context, AboutUSActivity::class.java))}

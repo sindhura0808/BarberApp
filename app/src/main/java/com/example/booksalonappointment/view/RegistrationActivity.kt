@@ -2,91 +2,111 @@ package com.example.booksalonappointment.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProvider
 import com.example.booksalonappointment.databinding.ActivityRegistrationBinding
-import com.example.booksalonappointment.model.Repository
+import com.example.booksalonappointment.model.Repo.Repository
+import com.example.booksalonappointment.model.remote.APIService
 import com.example.booksalonappointment.viewmodel.registration.RegistrationViewModel
 import com.example.booksalonappointment.viewmodel.registration.RegistrationViewModelFactory
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
 
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistrationBinding
     private lateinit var viewModel: RegistrationViewModel
+    lateinit var phone: String
+    lateinit var password: String
+    lateinit var confirmPassword: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.registerLogin.setOnClickListener {
-            startActivity(Intent(this, LogInActivity::class.java))
-            finish()
-        }
-        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-            if (it.isSuccessful) {
-                viewModel.fcmToken.value = it.result
-            }
-        }
         setUpViewModel()
-        setUpInputObserver()
-        setUpAPIObserver()
-    }
-    private fun setUpViewModel() {
-        val vmFactory = RegistrationViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this, vmFactory)[RegistrationViewModel::class.java]
-        binding.viewModel = viewModel
-    }
 
-    private fun setUpAPIObserver() {
-        viewModel.registrationResponse.observe(this) {
-            openDialogMessage(it!!.status, it.message)
+        binding.btnRegister.setOnClickListener {
+            phone = binding.edtMobile.text.toString()
+            password = binding.edtPassword.text.toString()
+            confirmPassword = binding.edtconfirmPassword.text.toString()
+            var check = true
+            var message = ""
+            if (phone.length < 8) {
+                check = false
+                message = "Mobile Number should at least 8 digits"
+            }
+            if (phone.length > 13) {
+                check = false
+                message = "Mobile Number should not more than 13 digits"
+            }
+            if (!phone.isDigitsOnly()) {
+                check = false
+                message = "Mobile Number should be digits"
+            }
+            if (password.length < 8) {
+                check = false
+                message = "Password should at least 8 digits"
+            }
+            if (password != confirmPassword) {
+                check = false
+                message = "Password not same."
+            }
+            if (check) {
+                FirebaseMessaging.getInstance().token.addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        viewModel.onRegisterClick(phone,password,it.result)
+                    }
+                }
+            } else {
+                val builder = AlertDialog.Builder(this)
+                    .setTitle("Register Error")
+                    .setMessage(message)
+                    .setPositiveButton("Ok") { _, _ ->
+                    }
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.setCancelable(true)
+                alertDialog.show()
+            }
+
+
         }
-
-        viewModel.error.observe(this) {
-            openDialogMessage(1, it!!)
-        }
-    }
-
-    private fun openDialogMessage(status: Int, message: String) {
-        val title = if (status == 0) "Welcome, Registration Successful!" else "Sorry, Registration Failed"
-        val builder = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .setPositiveButton("Go to Login") {_, _ -> finish() }
-            .setNeutralButton("Try again", null)
-        val alertDialog = builder.create()
-        alertDialog.setCancelable(false)
-        alertDialog.show()
-    }
-
-    private fun setUpInputObserver(){
-        viewModel.isMobileNumberNotEmpty.observe(this) {
-            binding.edtMobile.error = if (it!!) null else "Required"
-        }
-
-        viewModel.isMobileNumberValid.observe(this) {
-            binding.edtMobile.error = if (it!!) null else "Invalid Number"
-        }
-
-        viewModel.isPasswordNotEmpty.observe(this) {
-            binding.edtPassword.error = if (it!!) null else "Required"
-        }
-
-        viewModel.isConfirmPasswordNotEmpty.observe(this) {
-            binding.edtconfirmPassword.error = if (it!!) null else "Required"
-        }
-
-        viewModel.matchPassword.observe(this) {
-            binding.edtconfirmPassword.error = if (it!!) null else "Please check again"
-        }
+        binding.registerLogin.setOnClickListener{
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
     }
 
+        viewModel.userLiveData.observe(this) {
+            val builder = AlertDialog.Builder(this)
+                .setTitle("Registration Successfull!!")
+                .setMessage("Please log in!!")
+                .setPositiveButton("Login") { _, _ ->
+                    val intent = Intent(this, LogInActivity::class.java)
+                    intent.putExtra(PHONE, phone)
+                    intent.putExtra(PASSWORD, password)
+                    startActivity(intent)
+                }
+                .setNegativeButton("Cancel") { _, _ ->
+                }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+        }
+    }
+
+
+private fun setUpViewModel() {
+    val vmFactory = RegistrationViewModelFactory(Repository(APIService.getInstance()))
+    viewModel = ViewModelProvider(this, vmFactory)[RegistrationViewModel::class.java]
+    binding.viewModel = viewModel
+}
+
+
+
+    companion object {
+        const val PHONE = "phone"
+        const val PASSWORD = "password"
+    }
 }

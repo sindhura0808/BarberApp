@@ -6,234 +6,240 @@
     android:layout_height="match_parent"
     tools:context=".view.WorkingHoursActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/tool"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back_service"
+        android:layout_width="@dimen/_40dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginStart="@dimen/_10dp"
+        android:clickable="true"
+        android:contentDescription="@string/back"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintBottom_toTopOf="@id/guideline_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_grid"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+    <TextView
+        android:id="@+id/service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/workinghrs"
+        android:textSize="@dimen/activity_header_text_size"
+        android:gravity="center"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="@id/back_service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        app:layout_constraintTop_toTopOf="@id/back_service"
+        app:layout_constraintVertical_bias="0.3" />
 
 
     <ImageView
         android:id="@+id/salonImg"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="@dimen/_155dp"
+        android:layout_height="@dimen/_155dp"
+
         android:contentDescription="@string/salon_img"
         android:src="@drawable/barber"
         app:flow_verticalAlign="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool" />
+        app:layout_constraintTop_toBottomOf="@+id/service_tv" />
 
-    <TableLayout
-      android:layout_width="fill_parent"
-      android:layout_height="300dp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/salonImg">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+    <TextView
+        android:id="@+id/open_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/open_caps"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salonImg"/>
 
+    <TextView
+        android:id="@+id/sunday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/sunday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@+id/open_tv" />
 
-          <TableRow
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="horizontal">
-              <TextView
-                  android:text="Sunday"
-                  android:textStyle="bold"
-                  android:textSize="25dp"
-                  android:layout_gravity="start"
-                  android:layout_marginLeft="20dp"
-                  android:layout_width="150dp"
-                  android:textColor="@color/black"
-                  android:layout_height="wrap_content"
-                  android:layout_column="1" />
+    <TextView
+        android:id="@+id/sunday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/closed"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@+id/open_tv" />
 
-              <TextView
-                  android:text="08:00 to 22:00"
-                  android:textStyle="bold"
-                  android:textSize="25dp"
-                  android:layout_gravity="end"
-                  android:textColor="@color/black"
-                  android:layout_marginLeft="20dp"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_column="2" />
-          </TableRow>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal">
-      <TextView
-          android:text="Monday"
-          android:textStyle="bold"
-          android:textSize="25dp"
-          android:layout_gravity="start"
-          android:layout_marginLeft="20dp"
-          android:layout_width="150dp"
-          android:textColor="@color/black"
-          android:layout_height="wrap_content"
-          android:layout_column="1" />
+    <TextView
+        android:id="@+id/monday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/monday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/sunday_tv" />
 
-      <TextView
-          android:text="Holiday"
-          android:textStyle="bold"
-          android:textSize="25dp"
-          android:textColor="@color/red"
-          android:layout_gravity="end"
-          android:layout_marginLeft="20dp"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_column="2" />
-      </TableRow>
+    <TextView
+        android:id="@+id/monday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/sunday_tv" />
 
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal">
-          <TextView
-              android:text="Tuesday"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_marginLeft="20dp"
-              android:layout_width="150dp"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:layout_column="1" />
+    <TextView
+        android:id="@+id/tuesday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/tuesday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/monday_tv" />
 
-          <TextView
-              android:text="08:00 to 22:00"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="end"
-              android:textColor="@color/black"
-              android:layout_marginLeft="20dp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_column="2" />
-      </TableRow>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal">
-          <TextView
-              android:text="Wednesday"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_marginLeft="20dp"
-              android:layout_width="150dp"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:layout_column="1" />
+    <TextView
+        android:id="@+id/tuesday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/monday_hours" />
 
-          <TextView
-              android:text="08:00 to 22:00"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="end"
-              android:textColor="@color/black"
-              android:layout_marginLeft="20dp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_column="2" />
-      </TableRow>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal">
-          <TextView
-              android:text="Thursday"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_marginLeft="20dp"
-              android:layout_width="150dp"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:layout_column="1" />
+    <TextView
+        android:id="@+id/wednesday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/wednesday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/tuesday_tv" />
 
-          <TextView
-              android:text="08:00 to 22:00"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="end"
-              android:textColor="@color/black"
-              android:layout_marginLeft="20dp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_column="2" />
-      </TableRow>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal">
-          <TextView
-              android:text="Friday"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_marginLeft="20dp"
-              android:layout_width="150dp"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:layout_column="1" />
+    <TextView
+        android:id="@+id/wednesday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/tuesday_hours" />
 
-          <TextView
-              android:text="08:00 to 22:00"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="end"
-              android:textColor="@color/black"
-              android:layout_marginLeft="20dp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_column="2" />
-      </TableRow>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="horizontal"
-          android:baselineAligned="true">
-          <TextView
-              android:text="Saturday"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_marginLeft="20dp"
-              android:layout_width="150dp"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:layout_column="1" />
+    <TextView
+        android:id="@+id/thursday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/thursday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/wednesday_tv" />
 
-          <TextView
-              android:text="08:00 to 18:00"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:textColor="@color/black"
-              android:layout_marginLeft="20dp"
-              android:layout_gravity="end"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_column="2" />
-      </TableRow>
+    <TextView
+        android:id="@+id/thursday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/wednesday_tv" />
 
+    <TextView
+        android:id="@+id/friday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/friday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/thursday_tv" />
 
-  </TableLayout>
+    <TextView
+        android:id="@+id/friday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/thursday_tv" />
+
+    <TextView
+        android:id="@+id/saturday_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/saturday"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/friday_tv" />
+
+    <TextView
+        android:id="@+id/saturday_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:text="@string/business_hours_time_sat"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_mid"
+        app:layout_constraintTop_toBottomOf="@id/friday_tv" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

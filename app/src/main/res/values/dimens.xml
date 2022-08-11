@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="_120dp">120</dimen>
-    <dimen name="_15dp">15</dimen>
+    <dimen name="_120dp">120dp</dimen>
+    <dimen name="_15dp">15dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="common_margin">16dp</dimen>
     <dimen name="common_padding">16dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="activity_header_text_size">40sp</dimen>
+    <dimen name="_155dp">155dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_0dp">0dp</dimen>
+    <dimen name="_80dp">80dp</dimen>
+    <dimen name="_60dp">60dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="_140dp">140dp</dimen>
+    <dimen name="_170dp">170</dimen>
+    <dimen name="date_text_size">18sp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_70dp">70dp</dimen>
+    <dimen name="_25dp">25dp</dimen>
+    <dimen name="_18sp">18sp</dimen>
+    <dimen name="_130dp">130dp</dimen>
+    <dimen name="_300dp">300dp</dimen>
+    <dimen name="_22dp">22dp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+    <dimen name="_5dp">5sp</dimen>
 </resources>

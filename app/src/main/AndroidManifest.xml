@@ -4,6 +4,9 @@
     package="com.example.booksalonappointment">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,72 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookSalonAppointment"
         tools:targetApi="31">
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/Theme.BookSalonAppointment" />
+        <activity
+            android:name=".AppointmentActtivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AppointmentDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.BookingSummerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.TimeSelectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.TimeSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ProfileChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SelectedServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.BarberServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MapActivity"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAgrcE33d-z6RAOmQuJXPCtdu9lQTmTuhc" />
+
+        <activity
+            android:name=".view.LocationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_location" />
+        <activity
+            android:name=".view.ShareActivity"
+            android:exported="false"
+            tools:ignore="MissingClass" />
+        <activity
+            android:name=".view.BookAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.UserRating"
+            android:exported="false"
+            android:theme="@style/Theme.BookSalonAppointment" />
+        <activity
+            android:name=".view.ServiceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BookSalonAppointment" />
         <activity
             android:name=".view.ForgotPasswordActivity"
             android:exported="false" />
@@ -33,9 +102,6 @@
 
         <activity
             android:name=".view.DashBoardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ServiceActivity"
             android:exported="false" />
         <activity
             android:name=".view.DashBoardActivityWhenLoggedIn"

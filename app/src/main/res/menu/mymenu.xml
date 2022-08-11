@@ -35,30 +35,23 @@
             android:id="@+id/nav_notifications"
             android:icon="@drawable/ic_baseline_notifications_24"
             android:title="@string/notification"/>
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_baseline_share_24"
+            android:title="@string/share"/>
+
+        <item
+            android:id="@+id/nav_About"
+            android:icon="@drawable/ic_baseline_all_inclusive_24"
+            android:title="@string/About"/>
+
         <item
             android:id="@+id/nav_logout"
+
             android:icon="@drawable/ic_baseline_login_24"
             android:title="@string/logout"/>
 
-
-
     </group>
-    <item android:title="@string/Community">
-
-        <menu>
-
-            <item
-                android:id="@+id/nav_userrating"
-                android:icon="@drawable/ic_baseline_star_rate_24"
-                android:title="@string/userrating"/>
-
-            <item
-                android:id="@+id/nav_About"
-                android:icon="@drawable/ic_baseline_all_inclusive_24"
-                android:title="@string/About"/>
-
-
-        </menu>
-    </item>
 
 </menu>

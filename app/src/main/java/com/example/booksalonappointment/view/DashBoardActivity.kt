@@ -26,10 +26,10 @@ class DashBoardActivity : AppCompatActivity() {
             binding.drawerLayout.closeDrawers()
             when (menuItems.itemId){
                 R.id.nav_bookappointment-> {
-                    showToast("Book Appointment")
+                    startActivity(Intent(this,BookAppointmentActivity::class.java))
                 }
                 R.id.nav_ourservices-> {
-                    showToast("Our Services")
+                    startActivity(Intent(this,ServiceActivity::class.java))
                 }
                 R.id.nav_offers-> {
                     startActivity(Intent(this,OfferActivity::class.java))
@@ -38,7 +38,7 @@ class DashBoardActivity : AppCompatActivity() {
                     startActivity(Intent(this,HomeCareTipsActivity::class.java))
                 }
                 R.id.nav_howtoreach-> {
-                    showToast("How To Reach?")
+                    startActivity(Intent(this,LocationActivity::class.java))
                 }
                 R.id.nav_workinghours -> {
                     startActivity(Intent(this, WorkingHoursActivity::class.java))
@@ -49,8 +49,8 @@ class DashBoardActivity : AppCompatActivity() {
                 R.id.nav_logout -> {
                     startActivity(Intent(this,LogOutActivity::class.java))
                 }
-                R.id.nav_userrating-> {
-                    showToast("rating")
+                R.id.nav_share-> {
+                    startActivity(Intent(this,ShareActivity::class.java))
                 }
                 R.id.nav_About-> {
                     startActivity(Intent(this, AboutUSActivity::class.java))
