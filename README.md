@@ -1,10 +1,10 @@
-About BarberApp
-Using a BarberApp you can book a appointment with the barber on the available day with the available slots.
+# BarberApp
 
-About
+
+## About
 BarberApp gives you tons of features where ypu can book a appointment, receive notification of your appoiments, rescudle and cancel the appointment. You can also view the services available and the list of barbers you can choose from. Features like share options, userratings and current location can also be used from the BarberApp.
 
-Sailent Features:
+## Sailent Features:
 1.Book Appointment- you can select the barber, you can choosethe service from the list of services, you can choose the available date and time and book the appointment.
 2.Notification -Once you book the appointment you will receive the details of the booked appointment via notifications.
 3.Registration- you can create your account wherer you can easily maintain you information.
@@ -15,17 +15,17 @@ Sailent Features:
 8.Share- You can share the app.
 
 
- Screenshots
+ ## Screenshots
  
  
- Built With
+ ## Built With
  
  
- Architecture
+ ## Architecture
  
  
  
  
- To DO
+ ## To DO
  1.Complete the time selection and get the summary and book the appointment
  2.Get the notification
