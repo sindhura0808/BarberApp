@@ -2,7 +2,7 @@
 
 
 ## About
-BarberApp gives you tons of features where ypu can book a appointment, receive notification of your appoiments, rescudle and cancel the appointment. You can also view the services available and the list of barbers you can choose from. Features like share options, userratings and current location can also be used from the BarberApp.
+BarberApp gives you tons of features which you can use to book a appointment, recieve notification of your booked appointments, reschedule or cancel the appointment. You can also view the services available and the list of barbers you can choose from. Features like share options, userratings and current location are also available from the BarberApp.
 
 ## Sailent Features:
 - Book Appointment- you can select the barber, you can choosethe service from the list of services, you can choose the available date and time and book the      
@@ -50,5 +50,6 @@ appointment.
  
  
  ## To DO
- -Complete the time selection and get the summary and book the appointment
--Get the notification
+- Complete the time selection and get the summary and book the appointment
+- Get the notification
+- user rating
