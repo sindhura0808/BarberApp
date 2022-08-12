@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/darkgrey"
         android:padding="8dp">
 
         <androidx.appcompat.widget.AppCompatImageView

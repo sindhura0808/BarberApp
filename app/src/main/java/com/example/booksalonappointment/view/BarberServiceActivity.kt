@@ -33,6 +33,10 @@ class BarberServiceActivity : AppCompatActivity() {
         setupObservers()
         viewModel.getBarberServices()
         binding.apply {
+            backService.setOnClickListener {
+                super.onBackPressed()
+                finish()
+            }
            btnChangeBarber.setOnClickListener(){
                 super.onBackPressed()
                 finish()

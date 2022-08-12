@@ -1,5 +1,6 @@
 package com.example.booksalonappointment.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -9,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.platform.LocalContext
 
 import androidx.compose.ui.unit.dp
@@ -41,8 +43,8 @@ class ForgotPasswordActivity : ComponentActivity() {
 fun ForgotScreenUI() {
 
     val context = LocalContext.current
-    var name by remember { mutableStateOf("") }
     var phonenumber by remember { mutableStateOf("") }
+    var otp by remember { mutableStateOf("") }
 
     var password by remember { mutableStateOf("") }
     var confirmpassword by remember { mutableStateOf("") }
@@ -55,14 +57,14 @@ fun ForgotScreenUI() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(30.dp),
-            value = name,
+            value = phonenumber,
             onValueChange = {
-                name = it
+                phonenumber= it
             },
             placeholder = {
-                Text(text = "Enter your name")
+                Text(text = "Enter your Phone number")
             },
-            shape = RoundedCornerShape(24.dp),
+         
         )
 
         Spacer(modifier = Modifier.width(10.dp))
@@ -71,14 +73,14 @@ fun ForgotScreenUI() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(30.dp),
-            value = phonenumber,
+            value =otp,
             onValueChange = {
-                phonenumber= it
+                otp= it
             },
             placeholder = {
-                Text(text = "Enter your Phone number")
+                Text(text = "Enter your OTP")
             },
-            shape = RoundedCornerShape(24.dp),
+          
         )
 
         Spacer(modifier = Modifier.width(10.dp))
@@ -92,9 +94,9 @@ fun ForgotScreenUI() {
                 password = it
             },
             placeholder = {
-                Text(text = "Enter your password")
+                Text(text = "Enter your  new password")
             },
-            shape = RoundedCornerShape(24.dp),
+       
         )
 
 
@@ -109,21 +111,22 @@ fun ForgotScreenUI() {
                 confirmpassword = it
             },
             placeholder = {
-                Text(text = "Confirm your password")
+                Text(text = "Confirm your new password")
             },
-            shape = RoundedCornerShape(24.dp),
+            
         )
 
 
         Spacer(modifier = Modifier.width(10.dp))
 
-        Button(modifier = Modifier
+        Button( modifier = Modifier
             .fillMaxWidth()
             .padding(30.dp),
-            content = { Text(text = "Register") },
+            content = { Text(text = "Submit") },
             onClick = {
-                Toast.makeText(context, "Registration in successfully", Toast.LENGTH_SHORT).show()
-            }
+                Toast.makeText(context, "Password changed successfully", Toast.LENGTH_SHORT).show()
+            },
+
         )
 
 

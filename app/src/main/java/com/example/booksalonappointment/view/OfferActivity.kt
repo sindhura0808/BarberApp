@@ -16,8 +16,6 @@ class OfferActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityOffersBinding.inflate(layoutInflater)
-
-
         setContentView(R.layout.activity_offers)
         setSupportActionBar(findViewById(R.id.toolbar))
         // calling the action bar
@@ -28,6 +26,12 @@ class OfferActivity : AppCompatActivity() {
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
             actionBar.setDisplayHomeAsUpEnabled(true)
+        }
+        binding.apply {
+            backService.setOnClickListener {
+                super.onBackPressed()
+                finish()
+            }
         }
     }
 

@@ -111,6 +111,7 @@ class Repository (private val apiService: APIService) {
         val call = apiService.logInUser(loginRequest)
 
         call.enqueue(object : Callback<LogInResponse> {
+
             override fun onResponse(call: Call<LogInResponse>, response: Response<LogInResponse>) {
                 isProcessing.set(false)
                 if(!response.isSuccessful) {
@@ -118,7 +119,7 @@ class Repository (private val apiService: APIService) {
                 } else {
                     val apiResponse = response.body()
                     if (apiResponse == null) {
-                        error.postValue("Please retry!!.")
+                        error.postValue("Empty response. Please retry.")
                     } else {
                         if (apiResponse.status == 0) {
                             logInResponse.postValue(apiResponse)
@@ -132,7 +133,7 @@ class Repository (private val apiService: APIService) {
             override fun onFailure(call: Call<LogInResponse>, t: Throwable) {
                 isProcessing.set(false)
                 t.printStackTrace()
-                error.postValue("Error message is : ${t.toString()}.\n\nPlease retry.")
+                error.postValue("Error is : ${t.toString()}.\n\nPlease retry.")
             }
 
         })

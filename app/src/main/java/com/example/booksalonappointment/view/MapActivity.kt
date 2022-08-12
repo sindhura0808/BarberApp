@@ -41,7 +41,7 @@ class MapActivity : AppCompatActivity() , OnMapReadyCallback {
 
         mMap.addMarker(
             MarkerOptions().position(home).title("Marker is at home")
-                .icon(bitmapFromVector(R.drawable.barber_location))
+                .icon(bitmapFromVector(R.drawable.ic_baseline_add_location_alt_24))
         )
         mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 18f))

@@ -73,7 +73,7 @@ class LogInActivity : AppCompatActivity() {
         }
 
         binding.forgotpassword.setOnClickListener {
-            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+           // startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
         viewModel.loginResponse.observe(this) {
@@ -85,10 +85,14 @@ class LogInActivity : AppCompatActivity() {
                     Log.d("FCM_Token", "FCM_TOKEN: ${it.result}")
 
                 }
+
             }
             val intent = Intent(this, DashBoardActivity::class.java)
             Log.e(LOGIN_INFO, it.toString())
             startActivity(intent)
+        }
+        viewModel.error.observe(this) {
+            openDialog(it!!)
         }
 
     }
@@ -98,7 +102,15 @@ class LogInActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewmodelFactory)[LoginViewModel::class.java]
         binding.viewModel = viewModel
     }
-
+    private fun openDialog(message: String) {
+        val builder = AlertDialog.Builder(this)
+            .setTitle("Sorry")
+            .setMessage(message)
+            .setNeutralButton("Try again", null)
+        val alertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
 
     private fun saveUser(user: LogInResponse) {
         val pref = getSharedPreferences("users", MODE_PRIVATE)
