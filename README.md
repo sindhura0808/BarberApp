@@ -17,8 +17,8 @@ appointment.
 
 
  ## Screenshots
-<img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184248299-478b85d8-6147-40bc-9967-bc47d3d6f743.png>
- <img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184248434-658dc540-b019-45ef-bcd1-b9e2c6a40e57.png>
+<img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184248299-478b85d8-6147-40bc-9967-bc47d3d6f743.png> <img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184248434-658dc540-b019-45ef-bcd1-b9e2c6a40e57.png>
+
 <img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184248661-08016295-05db-4634-821c-79b699964a45.png>
 <img width=400 height=500 src=https://user-images.githubusercontent.com/28910395/184249570-be47b935-b705-4137-a568-8f06b9179301.png>
 <img height=500 width=400 src=https://user-images.githubusercontent.com/28910395/184250327-ae6a062d-b6b5-468d-afca-c7db7b4f0faf.png>
